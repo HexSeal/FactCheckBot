@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/joho/godotenv"
-	"log"
+	_ "github.com/joho/godotenv/autoload"
+	// "log"
 	"os"
 )
 
@@ -15,10 +15,6 @@ func checkEnv(envWorks string) {
 
 func main() {
 	fmt.Println("Start:")
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
 	envWorks := os.Getenv("envWorks")
 	checkEnv(envWorks)
 }
