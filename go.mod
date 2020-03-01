@@ -1,4 +1,4 @@
-module github.com/hexseal/factcheckbot
+module github.com/HexSeal/FactCheckBot
 
 go 1.13
 

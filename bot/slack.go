@@ -5,6 +5,8 @@ import (
 	
 	"github.com/slack-go/slack"
 	"log"
+	"fmt"
+	"strings"
 )
 
 /*
@@ -12,9 +14,8 @@ import (
 	and returns the client
 */
 func CreateSlackClient(apiKey string) *slack.RTM {
-	token := os.Getenv("BOT_OAUTH_ACCESS_TOKEN")
 	api := slack.New(
-		token,
+		apiKey,
 		slack.OptionDebug(true),
 		slack.OptionLog(log.New(os.Stdout, "slack-bot: ", log.Lshortfile|log.LstdFlags)),
 	)
@@ -76,7 +77,7 @@ func RespondToEvents(slackClient *slack.RTM) {
 	}
 }
 
-const helpMessage = "type in `@Reddit Top 5 (command) <arg1> <arg2>` to run a command.\n\nCommands:\n`help`\n`top <subreddit>`\n`echo <text>`"
+const helpMessage = "No"
 
 // sendHelp is a working help message, for reference.
 func sendHelp(slackClient *slack.RTM, slackChannel string) {
