@@ -55,7 +55,7 @@ func RespondToEvents(slackClient *slack.RTM) {
 			case "help":
 				sendHelp(slackClient, ev.Channel)
 			case "echo":
-				echoMessage(slackClient, strings.Join(splitMessage[1:], " "), ev.Channel)
+				echoMessage(slackClient, strings.Join(splitMessage[:], " "), ev.Channel)
 			}
 		case *slack.PresenceChangeEvent:
 			fmt.Printf("Presence Change: %v\n", ev)

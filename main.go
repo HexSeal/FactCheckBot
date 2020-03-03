@@ -4,9 +4,10 @@ import (
 	"net/http"
 	"os"
 	// "log"
-	
-	_ "github.com/joho/godotenv/autoload"
+
 	"github.com/HexSeal/FactCheckBot/bot"
+	"github.com/HexSeal/FactCheckBot/factCheck"
+	_ "github.com/joho/godotenv/autoload"
 )
 
 // slackIt initializes the slackbot
@@ -23,8 +24,10 @@ func slackIt() {
 func main() {
 	port := ":" + os.Getenv("PORT")
 	go http.ListenAndServe(port, nil)
-	slackIt()
+	// slackIt()
+	factCheck.SnopesCheck()
 
+	// Env check
 	// fmt.Println("Start:")
 	// envWorks := os.Getenv("envWorks")
 	// checkEnv(envWorks)
