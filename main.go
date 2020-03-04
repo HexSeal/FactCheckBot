@@ -3,11 +3,14 @@ package main
 import (
 	"net/http"
 	"os"
+
 	// "log"
 
 	"github.com/HexSeal/FactCheckBot/bot"
-	"github.com/HexSeal/FactCheckBot/factCheck"
+	// "github.com/HexSeal/FactCheckBot/factcheck"
+	"github.com/HexSeal/FactCheckBot/selenium"
 	_ "github.com/joho/godotenv/autoload"
+	// "github.com/tebeka/selenium"
 )
 
 // slackIt initializes the slackbot
@@ -25,7 +28,8 @@ func main() {
 	port := ":" + os.Getenv("PORT")
 	go http.ListenAndServe(port, nil)
 	// slackIt()
-	factCheck.SnopesCheck()
+	// factCheck.SnopesCheck()
+	selenium.chromeTest()
 
 	// Env check
 	// fmt.Println("Start:")

@@ -1,4 +1,4 @@
-package factCheck
+package factcheck
 
 import (
 	"fmt"
@@ -20,8 +20,8 @@ const (
 // SnopesCheck runs selenium on snopes.com and returns the answer to the query // CURRENTLY TESTING WITH GOPLAYGROUND
 func SnopesCheck() {
 	opts := []selenium.ServiceOption{
-		// selenium.StartFrameBuffer(),           // Start an X frame buffer for the browser to run in.
-		selenium.ChromeDriver("/maxfinn/dev/dependencies/chromedriver"), 		// Specify the path to chromedriver. MIGHT BE CAUSING EOF ERROR
+		selenium.StartFrameBuffer(),           // Start an X frame buffer for the browser to run in.
+		selenium.ChromeDriver("chromedriver"), 		// Specify the path to chromedriver. MIGHT BE CAUSING EOF ERROR
 		selenium.Output(os.Stderr),            // Output debug information to STDERR.
 	}
 
