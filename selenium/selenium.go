@@ -11,8 +11,8 @@ import (
 
 // Snippet from https://github.com/tebeka/selenium/issues/103
 
-// chromeTest is an example of a basic selenium headless call through Goolge Chrome to make a headless instance 
-func chromeTest() {
+// ChromeTest is an example of a basic selenium headless call through Goolge Chrome to make a headless instance 
+func ChromeTest() {
 	// browserPath := GetBrowserPath("chromium")
 	port, err := pickUnusedPort()
 

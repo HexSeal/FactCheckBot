@@ -7,6 +7,7 @@ import (
 	"log"
 	"fmt"
 	"strings"
+	"github.com/HexSeal/FactCheckBot/factcheck"
 )
 
 /*
@@ -56,6 +57,8 @@ func RespondToEvents(slackClient *slack.RTM) {
 				sendHelp(slackClient, ev.Channel)
 			case "echo":
 				echoMessage(slackClient, strings.Join(splitMessage[:], " "), ev.Channel)
+			case "check":
+				checkQuery(slackClient, strings.Join(splitMessage[:1], " "), ev.Channel)
 			}
 		case *slack.PresenceChangeEvent:
 			fmt.Printf("Presence Change: %v\n", ev)
@@ -89,4 +92,12 @@ func echoMessage(slackClient *slack.RTM, message, slackChannel string) {
 	splitMessage := strings.Fields(strings.ToLower(message))
 
 	slackClient.SendMessage(slackClient.NewOutgoingMessage(strings.Join(splitMessage[1:], " "), slackChannel))
+}
+
+func checkQuery(slackClient *slack.RTM, message, slackChannel string) {
+	formattedQuery := strings.ToLower(message)
+	factcheck.ChromeCheck(formattedQuery)
+
+
+	slackClient.SendMessage(slackClient.NewOutgoingMessage(answer, slackChannel))
 }

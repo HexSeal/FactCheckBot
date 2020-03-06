@@ -7,7 +7,7 @@ import (
 	// "log"
 
 	"github.com/HexSeal/FactCheckBot/bot"
-	// "github.com/HexSeal/FactCheckBot/factcheck"
+	"github.com/HexSeal/FactCheckBot/factcheck"
 	"github.com/HexSeal/FactCheckBot/selenium"
 	_ "github.com/joho/godotenv/autoload"
 	// "github.com/tebeka/selenium"
@@ -24,12 +24,17 @@ func slackIt() {
 // 	fmt.Println(envWorks)
 // }
 
+// runCheck runs the Selenium Webdriver
+func runCheck() {
+	factcheck.SnopesCheck()
+}
+
 func main() {
 	port := ":" + os.Getenv("PORT")
 	go http.ListenAndServe(port, nil)
 	// slackIt()
-	// factCheck.SnopesCheck()
-	selenium.chromeTest()
+	// runCheck()
+	selenium.ChromeTest()
 
 	// Env check
 	// fmt.Println("Start:")
