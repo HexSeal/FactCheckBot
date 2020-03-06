@@ -36,7 +36,7 @@ func ChromeCheck(query string) string, error {
 	wd.Refresh()
 
 	// wd.Get("google.com")
-
+	
 	// Stop the service once finished.
 	defer service.Stop()
 

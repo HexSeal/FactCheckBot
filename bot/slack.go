@@ -2,12 +2,13 @@ package bot
 
 import (
 	"os"
-	
-	"github.com/slack-go/slack"
-	"log"
+
 	"fmt"
+	"log"
 	"strings"
+
 	"github.com/HexSeal/FactCheckBot/factcheck"
+	"github.com/slack-go/slack"
 )
 
 /*
@@ -97,7 +98,6 @@ func echoMessage(slackClient *slack.RTM, message, slackChannel string) {
 func checkQuery(slackClient *slack.RTM, message, slackChannel string) {
 	formattedQuery := strings.ToLower(message)
 	factcheck.ChromeCheck(formattedQuery)
-
 
 	slackClient.SendMessage(slackClient.NewOutgoingMessage(answer, slackChannel))
 }

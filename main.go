@@ -26,15 +26,14 @@ func slackIt() {
 
 // runCheck runs the Selenium Webdriver
 func runCheck() {
-	factcheck.SnopesCheck()
+	factcheck.ChromeCheck()
 }
 
 func main() {
 	port := ":" + os.Getenv("PORT")
 	go http.ListenAndServe(port, nil)
-	// slackIt()
+	slackIt()
 	// runCheck()
-	selenium.ChromeTest()
 
 	// Env check
 	// fmt.Println("Start:")
